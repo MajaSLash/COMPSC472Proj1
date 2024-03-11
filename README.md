@@ -22,10 +22,15 @@ The project aims to create a multi-process and multi-thread task manager with ad
 ## Instructions:
 
 -Clone or download the project repository.
+
 -Ensure Python is installed on your system.
+
 -Install the required dependencies by running pip install -r requirements.txt.
+
 -Run the program by executing python main.py.
+
 -Follow the prompts in the CLI menu to interact with the task manager and perform text file processing.
+
 
 ## Output Screenshots:
 
