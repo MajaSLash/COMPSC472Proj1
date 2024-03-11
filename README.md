@@ -39,7 +39,8 @@ The project aims to create a multi-process and multi-thread task manager with ad
 ![OUTPUT 5](https://github.com/MajaSLash/COMPSC472Proj1/assets/52076286/09d198ef-7597-4f5f-a17d-11fe90257674)
 ![OUTPUT 6-8](https://github.com/MajaSLash/COMPSC472Proj1/assets/52076286/2a2ff281-a599-4c77-ab95-cc2ec025540e)
 ![OUTPUT 9-10](https://github.com/MajaSLash/COMPSC472Proj1/assets/52076286/a9aae612-1108-4968-a9f9-09b0e76e1b8b)
-![OUTPUT 11](https://github.com/MajaSLash/COMPSC472Proj1/assets/52076286/5f0e83ca-7427-442a-bda9-ea436b6ea30d)
+![OUTPUT 11](https://github.com/MajaSLash/COMPSC472Proj1/assets/52076286/3ec2cee0-b365-4b1d-bed6-e8c30b19e6c0)
+
 
 
 
