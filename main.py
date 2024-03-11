@@ -1,35 +1,35 @@
-import COMPSC472Proj1.Project1Sys as Project1Sys
+from process_manager import *
+from thread_manager import *
+from utils import *
+from file_processing import *
 
-def display_menu():
-    print("\n1. List Processes")
-    print("2. Kill Process")
-    print("3. Suspend Process")
-    print("4. Resume Process")
-    print("5. List Threads for Process")
-    print("6. Kill Thread")
-    print("7. Process IPC (Shared Memory)")
-    print("8. Process IPC (Message Passing)")
-    print("9. Thread IPC (Shared Memory)")
-    print("10. Thread IPC (Message Passing)")
-    print("11. Process Large Text File")
-    print("0. Exit")
-
-def process_large_text_file():
-    filename = input("Enter the path to the large text file: ")
-    num_segments = int(input("Enter the number of segments to split the file into: "))
-    num_processes = int(input("Enter the number of processes to use: "))
-
-    start_time = Project1Sys.time.time()
-    result = Project1Sys.process_parallel(filename, num_segments, num_processes)
-    end_time = Project1Sys.time.time()
-
-    print("Results:")
-    print(result)
-    print("Time taken: {} seconds".format(end_time - start_time))
+import threading
+import multiprocessing
+import queue
 
 def main():
-    process_manager = Project1Sys.ProcessManager()
-    thread_manager = Project1Sys.ThreadManager()
+    process_manager = ProcessManager()
+    thread_manager = ThreadManager()
+
+    process_manager = ProcessManager()
+    thread_manager = ThreadManager()
+
+    monitor_thread = threading.Thread(target=monitor_system)
+    monitor_thread.daemon = True
+    monitor_thread.start()
+
+    # Process IPC - Shared Memory
+    shared_value = multiprocessing.Value('i', 0)
+
+    # Process IPC - Message Passing
+    message_queue = multiprocessing.Queue()
+
+    # Thread IPC - Shared Memory
+    lock = threading.Lock()
+    shared_variable = multiprocessing.Value('i', 0)
+
+    # Thread IPC - Message Passing
+    message_queue_thread = queue.Queue()
 
     while True:
         display_menu()
@@ -38,7 +38,7 @@ def main():
         if choice == '1':
             processes = process_manager.list_processes()
             for pid, proc in processes.items():
-                Project1Sys.print_process_info(proc)
+                print_process_info(proc)
 
         elif choice == '2':
             pid = int(input("Enter PID of the process to kill: "))
@@ -66,7 +66,7 @@ def main():
             threads = thread_manager.list_threads(pid)
             if threads:
                 for tid, thread in threads.items():
-                    Project1Sys.print_thread_info(thread)
+                    print_thread_info(thread)
             else:
                 print("No such process found.")
 
@@ -78,21 +78,21 @@ def main():
                 print("Failed to kill thread.")
 
         elif choice == '7':
-            Project1Sys.process_ipc_shared_memory(Project1Sys.shared_value)
-            print("Shared memory value after increment: ", Project1Sys.shared_value.value)
+            process_ipc_shared_memory(shared_value)
+            print("Shared memory value after increment: ", shared_value.value)
 
         elif choice == '8':
-            Project1Sys.process_ipc_message_passing(Project1Sys.message_queue)
-            message = Project1Sys.message_queue.get()
+            process_ipc_message_passing(message_queue)
+            message = message_queue.get()
             print("Received message in process: ", message)
 
         elif choice == '9':
-            Project1Sys.thread_ipc_shared_memory(Project1Sys.lock, Project1Sys.shared_variable)
-            print("Shared memory value after increment: ", Project1Sys.shared_variable.value)
+            thread_ipc_shared_memory(lock, shared_variable)
+            print("Shared memory value after increment: ", shared_variable.value)
 
         elif choice == '10':
-            Project1Sys.thread_ipc_message_passing(Project1Sys.message_queue_thread)
-            message = Project1Sys.message_queue_thread.get()
+            thread_ipc_message_passing(message_queue_thread)
+            message = message_queue_thread.get()
             print("Received message in thread: ", message)
         elif choice == '11':
             process_large_text_file()
