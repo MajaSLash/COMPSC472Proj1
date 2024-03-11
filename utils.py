@@ -36,7 +36,7 @@ def monitor_system():
         # System-wide resource utilization monitoring
         cpu_percent = psutil.cpu_percent(interval=1)
         memory_info = psutil.virtual_memory()
-        print("System-wide resource utilization monitoring (This will repeat every 30 seconds)")
+        print("\nSystem-wide resource utilization monitoring (This will repeat every 30 seconds)")
         print("CPU Utilization: {}%".format(cpu_percent))
         print("Memory Utilization: {}%".format(memory_info.percent))
         time.sleep(30)
