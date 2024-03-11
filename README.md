@@ -53,4 +53,4 @@ Permissions based on local machine was an early issue (that is still persisting 
 The current implementation may not be optimal for extremely large text files or systems with limited resources. Error handling and edge cases could also be further improved for robustness.
 ### Areas for improvement:
 
-Some areas for imporovement are to firstly ensure all cases and functions are operational and do not break the program based on permisssion issues. Error handling to provide more informative error messages to users. Options for customizing parallelization parameters based on system resources is also an addition that can be added in the future.
+Some areas for imporovement are to firstly ensure all cases and functions are operational and do not break the program based on permisssion issues. Better error handling can also be added to provide more informative error messages to users. Options for customizing parallelization parameters based on system resources is also an addition that can be added in the future.
