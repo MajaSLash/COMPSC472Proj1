@@ -7,15 +7,7 @@ The project aims to create a multi-process and multi-thread task manager with ad
 
 ## Structure with diagram and descriptions:
 
-plaintext
-Copy code
-text_processing/
-│
-├── main.py               # Main entry point for the program
-├── process_manager.py    # Module for managing processes
-├── thread_manager.py     # Module for managing threads
-├── file_processing.py    # Module for parallel text file processing
-└── utils.py              # Utility functions and shared functionalities
+![image](https://github.com/MajaSLash/COMPSC472Proj1/assets/52076286/9793e38a-8e7b-4e22-b200-24c9b6b3d7d5)
 
 -main.py: Contains the main program logic and CLI user interface.
 
