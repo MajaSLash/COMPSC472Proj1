@@ -1,5 +1,8 @@
 import psutil
 import time
+import random
+import string
+
 
 def display_menu():
     print("\n1. List Processes")
@@ -54,3 +57,12 @@ def thread_ipc_shared_memory(lock, shared_variable):
 def thread_ipc_message_passing(queue):
     print("Thread: Sending message through queue")
     queue.put("Hello from thread")
+
+def generate_sample_text_file():
+    filename = "sample_text_file.txt"
+    num_lines = 10000  # Adjust as needed
+    line_length = 100  # Adjust as needed
+    with open(filename, 'w') as file:
+        for _ in range(num_lines):
+            line = ''.join(random.choices(string.ascii_lowercase + string.ascii_uppercase, k=line_length))
+            file.write(line + '\n')

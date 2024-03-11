@@ -47,6 +47,7 @@ def process_parallel(filename, num_segments, num_processes):
 
     return final_result
 def process_large_text_file():
+    print("sample text file available: sample_text_file.txt")
     filename = input("Enter the path to the large text file: ")
     num_segments = int(input("Enter the number of segments to split the file into: "))
     num_processes = int(input("Enter the number of processes to use: "))

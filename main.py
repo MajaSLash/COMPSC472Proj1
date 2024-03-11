@@ -31,6 +31,8 @@ def main():
     # Thread IPC - Message Passing
     message_queue_thread = queue.Queue()
 
+    generate_sample_text_file()
+
     while True:
         display_menu()
         choice = input("Enter your choice: ")
